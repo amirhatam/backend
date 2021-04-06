@@ -13,3 +13,17 @@ request.get("http://localhost:8000/countries",  (err, res, body) => {
     console.log(cntN.reverse());
 });
 
+
+request.get("http://localhost:8000/countries:name/capital",  (err, res, body) => {
+
+
+
+    var capt = JSON.parse(body);
+    var capital = capt.map( (elem) => {
+        return elem
+    })
+
+
+    console.log(capital.reverse());
+});
+
