@@ -1,11 +1,11 @@
 var request = require("request");
 
-request.get("http://localhost:8000/countries", function (err, res, body) {
+request.get("http://localhost:8000/countries",  (err, res, body) => {
 
 
 
     var cnt = JSON.parse(body);
-    var cntN = cnt.map(function (elem) {
+    var cntN = cnt.map( (elem) => {
         return elem
     })
 
