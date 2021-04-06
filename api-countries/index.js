@@ -9,8 +9,11 @@ app.use(cors())
 
 
 // Routes
-app.get('/countries', (req, res) => {
-    res.send(["Italy ", " Cuba ", " Japan ", " Iran ", " Spain"]);
+app.get('/countries:name', (req, res) => {
+    res.send(["Italy ", " Cuba ", " Japan ", " Bali ", " Spain"]);
+});
+app.get('/countries:name/capital', (req, res) => {
+    res.send(["Rome ", " Havane ", " Tokyo ", " Bali ", " Madrid"]);
 });
 
 
