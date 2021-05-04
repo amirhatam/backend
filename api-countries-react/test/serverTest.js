@@ -1,6 +1,6 @@
 const express = require("express")
 const cors = require("cors")
-const {countriesData} = require("./dataCountries.js")
+const {countriesData2} = require("./test.js")
 
 const app = express()
 
@@ -9,10 +9,13 @@ app.use(cors())
 const port = 8000
 
 
+
+
+
 app.get("/countries/", (req,res) => {
 
     res.json({
-        countriesData
+        countriesData2
     })
 })
 
@@ -20,8 +23,8 @@ app.get("/countries/name/:pays", (req,res) => {
     const pays = req.params.pays.toUpperCase()
     let resultCountries= []
 
-    for (let index = 0; index < countriesData.length; index++) {
-        const curPays = countriesData[index];
+    for (let index = 0; index < countriesData2.length; index++) {
+        const curPays = countriesData2[index];
 
         if (curPays.name.toUpperCase() === pays) {
             resultCountries.push(curPays)
@@ -34,6 +37,8 @@ app.get("/countries/name/:pays", (req,res) => {
         resultCountries
     })
 })
+
+
 
 
 app.listen(port, () => {

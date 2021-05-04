@@ -1,5 +1,4 @@
-
-const countriesData= [
+const countriesData2= [
     {
     "name":"Afghanistan",
     "topLevelDomain":[
@@ -166,7 +165,6 @@ const countriesData= [
     },
     {
     "name":"Albania",
-    "img":"https://images.unsplash.com/photo-1610026717780-c19ec5dd44c7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
     "topLevelDomain":[
     ".al"
     ],
@@ -245,7 +243,6 @@ const countriesData= [
     },
     {
     "name":"Algeria",
-    "img":"https://images.unsplash.com/photo-1566418593554-6ea3a46442ea?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80",
     "topLevelDomain":[
     ".dz"
     ],
@@ -414,7 +411,6 @@ const countriesData= [
     },
     {
     "name":"Andorra",
-    "img":"https://images.unsplash.com/photo-1551121538-09dc126676b2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
     "topLevelDomain":[
     ".ad"
     ],
@@ -482,7 +478,6 @@ const countriesData= [
     },
     {
     "name":"Angola",
-    "img": "https://images.unsplash.com/photo-1536737216634-b77050ed3b2a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
     "topLevelDomain":[
     ".ao"
     ],
@@ -782,7 +777,6 @@ const countriesData= [
     },
     {
     "name":"Argentina",
-    "img":"https://images.unsplash.com/photo-1610307355998-731ff5da045e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1789&q=80",
     "topLevelDomain":[
     ".ar"
     ],
@@ -874,7 +868,6 @@ const countriesData= [
     },
     {
     "name":"Armenia",
-    "img":"https://images.unsplash.com/photo-1536645152842-6b5fbacf1153?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
     "topLevelDomain":[
     ".am"
     ],
@@ -1029,7 +1022,6 @@ const countriesData= [
     },
     {
     "name":"Australia",
-    "img":"https://images.unsplash.com/photo-1598061437788-ebbfc3257ce1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1789&q=80",
     "topLevelDomain":[
     ".au"
     ],
@@ -1100,7 +1092,6 @@ const countriesData= [
     },
     {
     "name":"Austria",
-    "img":"https://images.unsplash.com/photo-1486570318579-054c95b01160?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1790&q=80",
     "topLevelDomain":[
     ".at"
     ],
@@ -1183,7 +1174,6 @@ const countriesData= [
     },
     {
     "name":"Azerbaijan",
-    "img":"https://images.unsplash.com/photo-1607207685777-0986a1eede0e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80",
     "topLevelDomain":[
     ".az"
     ],
@@ -1254,7 +1244,6 @@ const countriesData= [
     },
     {
     "name":"Bahamas",
-    "img":"https://images.unsplash.com/photo-1580503056870-5b465315ba34?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80",
     "topLevelDomain":[
     ".bs"
     ],
@@ -1330,7 +1319,6 @@ const countriesData= [
     },
     {
     "name":"Bahrain",
-    "img":"https://images.unsplash.com/photo-1548755212-734fccb42001?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1789&q=80",
     "topLevelDomain":[
     ".bh"
     ],
@@ -1407,7 +1395,6 @@ const countriesData= [
     },
     {
     "name":"Bangladesh",
-    "img":"https://images.unsplash.com/photo-1618700997914-1a62d43cda70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80",
     "topLevelDomain":[
     ".bd"
     ],
@@ -1557,7 +1544,6 @@ const countriesData= [
     },
     {
     "name":"Belarus",
-    "img":"https://images.unsplash.com/photo-1559387186-49df89a55763?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80",
     "topLevelDomain":[
     ".by"
     ],
@@ -1652,7 +1638,6 @@ const countriesData= [
     },
     {
     "name":"Belgium",
-    "img":"https://images.unsplash.com/photo-1491557345352-5929e343eb89?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
     "topLevelDomain":[
     ".be"
     ],
@@ -2066,8 +2051,7 @@ const countriesData= [
     "cioc":"BHU"
     },
     {
-    "name":"Bolivia",
-    "img":"https://images.unsplash.com/photo-1526029655228-b7ee496c7819?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+    "name":"Bolivia (Plurinational State of)",
     "topLevelDomain":[
     ".bo"
     ],
@@ -2935,7 +2919,6 @@ const countriesData= [
     },
     {
     "name":"Bulgaria",
-    "img":"https://images.unsplash.com/photo-1414187976819-32a4deaae820?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
     "topLevelDomain":[
     ".bg"
     ],
@@ -3270,7 +3253,6 @@ const countriesData= [
     },
     {
     "name":"Cameroon",
-    "img":"https://images.unsplash.com/photo-1615463738213-b9381d217b4e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1789&q=80",
     "topLevelDomain":[
     ".cm"
     ],
@@ -3361,7 +3343,6 @@ const countriesData= [
     },
     {
     "name":"Canada",
-    "img":"https://images.unsplash.com/photo-1503614472-8c93d56e92ce?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1899&q=80",
     "topLevelDomain":[
     ".ca"
     ],
@@ -3769,7 +3750,6 @@ const countriesData= [
     },
     {
     "name":"Chile",
-    "img":"https://images.unsplash.com/photo-1490782300182-697b80ad4293?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1999&q=80",
     "topLevelDomain":[
     ".cl"
     ],
@@ -3863,7 +3843,6 @@ const countriesData= [
     },
     {
     "name":"China",
-    "img":"https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
     "topLevelDomain":[
     ".cn"
     ],
@@ -4077,7 +4056,6 @@ const countriesData= [
     },
     {
     "name":"Colombia",
-    "img":"https://images.unsplash.com/photo-1576018753502-1a55b66cc44a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80",
     "topLevelDomain":[
     ".co"
     ],
@@ -4269,7 +4247,6 @@ const countriesData= [
     },
     {
     "name":"Congo",
-    "img":"https://images.unsplash.com/photo-1601227446426-f0772067d129?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
     "topLevelDomain":[
     ".cg"
     ],
@@ -20010,6 +19987,6 @@ const countriesData= [
     }
     ]
 
-    
+   
 
-module.exports = {countriesData}
+module.exports = {countriesData2}
