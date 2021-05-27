@@ -21,7 +21,7 @@ app.get("/students", (req, res) => {
   res.json(stutentsData)
 })
 
-app.post("/students", (req, res) => {
+app.post("/students/add", (req, res) => {
   const newStudent = req.body
   
   stutentsData.push(newStudent)
