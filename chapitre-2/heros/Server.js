@@ -9,26 +9,23 @@ app.use(cors());
 
 const port = 9000;
 
+const transformName = (req, res, next) => {
+  // const newHero = req.body.toLowerCase()
+  req.body.name = req.body.name.toLowerCase();
+  console.log(req.body.name);
 
-  const transformName = (req, res, next) => {
-    // const newHero = req.body.toLowerCase()
-    req.body.name = req.body.name.toLowerCase()
-    console.log(req.body.name);
-
-    next()
-    
-}
-
+  next();
+};
 
 app.get("/heroes", (req, res) => {
   res.json(superHeros);
 });
 
 app.get("/heroes/:name", (req, res) => {
-  const name = req.params.name
+  const name = req.params.name;
   // const name = req.params.name.toLowerCase()
 
-//  console.log("name params",name);
+  //  console.log("name params",name);
 
   const findHero = superHeros.find((elem) => {
     // console.log(elem.name);
@@ -50,36 +47,36 @@ app.get("/heroes/:name/powers", (req, res) => {
   res.json(powersHero);
 });
 
-
-
-
-
 app.post("/heroes", transformName, (req, res) => {
-  const newHero = req.body
+  const newHero = req.body;
 
-  superHeros.push(newHero)
-  
+  superHeros.push(newHero);
 
   res.json({
-    message :"Ok, héros ajouté"
+    message: "Ok, héros ajouté",
   });
 });
 
-app.post("/heroes/Thor/powers",(req, res) => {
-  const newHero = req.body
-  console.log(newHero);
+app.post("/heroes/:name/powers/", (req, res) => {
+  const name = req.params.name;
 
-  // superHeros.push(newHero)
-  
+  const heroName = superHeros.find((elem) => {
+    return elem.name == name;
+  });
+
+  // console.log(heroName);
+
+  const heroPowers = req.body.power;
+
+  console.log(heroPowers);
+
+  // heroName.push(heroPowers)
 
   res.json({
-    message :"Pouvoir ajouté !"
+    message: "Pouvoir ajouté !",
   });
+  // next()
 });
-
-
-
-
 
 app.listen(port, () => {
   console.log("Server à l'écoute dans le port " + port);
