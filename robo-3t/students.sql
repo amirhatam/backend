@@ -18,3 +18,5 @@ db.students.insert(
 db.students.insert(
 {name: "Sophie", city: "Paris"}
 )
+
+db.Languages.find()
