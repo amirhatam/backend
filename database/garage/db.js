@@ -16,13 +16,28 @@ const carsSchema = mongoose.Schema({
     model:   "S500",
     year: 2021,
   });
-  //  Benz.save()
+//    Benz.save()
   
   const Porsche = new Car({
       brand: "Porsche",
       model:   "Cayenne",
       year: 2021,
     });
+    // Porsche.save()
 
 
-    Porsche.save()
+
+    // Car.findOne({ year: 2021 }, function (err, doc){
+    // console.log(doc);
+    //     // doc.year = 2020;
+    //     // // doc.visits.$inc();
+    //     // doc.save();
+    //   });
+
+
+  async function updateFunc (){
+
+      const updateCar = await Car.update({_id:"60be305659d99c745001025c"}, {year:2020})
+   }
+
+   updateFunc();
