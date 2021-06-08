@@ -39,7 +39,6 @@ async function updateFunc() {
 
   const updateCar = await Car.update({ _id: "60be305659d99c745001025c" }, { year: 2020 })
 }
-
 //    updateFunc();
 
 
@@ -47,7 +46,7 @@ async function deleteFunc() {
 
   const deleteCar = await Car.deleteMany({ _id: "60be7fac13acf48aeca4b418" }, { brand: "Aston Martin" })
 }
-deleteFunc()
+// deleteFunc()
 
 
 Car.insertMany([
