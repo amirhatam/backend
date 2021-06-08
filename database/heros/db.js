@@ -29,7 +29,7 @@ app.use(cors())
 app.use(express.json())
 
 
-app.get("/heros", async(req,res) => {
+app.get("/heros", async (req, res) => {
     try {
         const heros = await hero.find().exec()
 
@@ -45,26 +45,27 @@ app.get("/heros", async(req,res) => {
 })
 
 app.get("/heroes/:name", (req, res) => {
-   
-   try {
 
-       const nameHero = req.params.name.toLowerCase()
-   
-       for (var i = 0; i < heros.length; i++) {
-   
-           if (heros[i].name.toLowerCase() === nameHero) {
-               res.json(heros[i])
-           }
-       }
-   }
+    try {
+        const nameHero = req.params.name
+        const heros = await hero.findone({ name: nameHero })
 
-   catch (error) {
-    console.error("Error in GET /heros", error)
 
-    res.json({
-        message: "Error when finding heros "
-    })
-}
+        for (var i = 0; i < heros.length; i++) {
+
+            if (heros[i].name.toLowerCase() === nameHero) {
+                res.json(heros[i])
+            }
+        }
+    }
+
+    catch (error) {
+        console.error("Error in GET /heros", error)
+
+        res.json({
+            message: "Error when finding heros "
+        })
+    }
 })
 
 
