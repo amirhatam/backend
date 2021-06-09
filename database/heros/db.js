@@ -1,3 +1,4 @@
+
 const express = require("express")
 const cors = require("cors")
 const mongoose = require("mongoose")
@@ -44,19 +45,19 @@ app.get("/heros", async (req, res) => {
     }
 })
 
-app.get("/heroes/:name", (req, res) => {
+app.get("/heros/:name", async(req, res) => {
 
     try {
         const nameHero = req.params.name
         const heros = await hero.findone({ name: nameHero })
 
+        res.json(hero)
+        // for (var i = 0; i < heros.length; i++) {
 
-        for (var i = 0; i < heros.length; i++) {
-
-            if (heros[i].name.toLowerCase() === nameHero) {
-                res.json(heros[i])
-            }
-        }
+        //     if (heros[i].name === nameHero) {
+        //         res.json(heros[i])
+        //     }
+        // }
     }
 
     catch (error) {
