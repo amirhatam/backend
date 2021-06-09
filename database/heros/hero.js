@@ -12,4 +12,6 @@ const heroSchema = new mongoose.Schema({
 
 const Hero = mongoose.model("Hero", heroSchema)
 
+
+
 module.exports = Hero

@@ -57,7 +57,6 @@ app.get("/heroes/:name", async (req, res) => {
         res.json({ errorMessage: "There was a probleme :(" }, 500)
     }
 
-
 });
 
 
