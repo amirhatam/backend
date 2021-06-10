@@ -25,6 +25,16 @@ const addHotel = async () => {
                 hasSpa: true,
                 hasPool: true,
                 priceCategory : 200,
+            },
+            {
+                name: "Tivoli",
+                address: "12 street M.J",
+                city: "New-York",
+                country: "USA",
+                stars: 6,
+                hasSpa: true,
+                hasPool: true,
+                priceCategory : 250,
             }
         ])
 
