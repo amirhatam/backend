@@ -82,11 +82,11 @@ const transformName = (req, res, next) => {
 }
 
 
-app.post("/hotel", transformName, async (req, res, next) => {
-
+app.post("/hotel",transformName,  async (req, res, next) => {
     try {
         const addHotel = req.body
-        const hotel = await findHotel(addHotel.name)
+        const hotel = await Hotel.findOne({addHotel})
+        // const hotel = await findHotel(addHotel.name)
 
         if (hotel) {
             res.status(400).json({
@@ -103,68 +103,19 @@ app.post("/hotel", transformName, async (req, res, next) => {
     }
 }, async (req, res) => {
 
-    try {
+    try{
         const hotel = req.body
-        const name = hotel.name
-
-        const existingName = await nameModel.find({ name: { $in: name } })
-
-        console.log(existingName)
-
-        let savedNames = []
-
-        if (existingName.length !== name.length) {
-            
-            const differenceNames = name.filter(elem =>  {
-                return !existingName.find(x => {
-                    return x.name === elem
-                })
-            })
-
-            console.log("differenceNames", differenceNames)
-
-            const newNames = differenceNames.map(elem => {
-                return {
-                    name: elem,
-                    force: 0
-                }
-            })
-
-            console.log("newNames", newNames)
-
-            savedNames = await nameModel.insertMany(newNames)
-
-            console.log("savedNames", savedNames)
-            
-        }
- 
-        hotel.name = [...existingName, ...savedNames]
         
-        console.log("hotel.powers", hotel.name)
-
-        // res.json("testing POST heroes")
-
-        const newHero = await heroModel.create(hotel)
-
+        const newHotel = await Hotel.create(hotel)
         res.json({
-            message: "Ok, hero was created!",
-            newHero
+            message: "Ok, hotel ajouté",
+            newHotel
         })
-    } catch (err) {
+    }catch(err){
         console.error(err)
-
-        res.status(500).json({ errorMessage: "There was a problem " })
+        res.status(500).json({errorMessage:"There was a problem"})
     }
-
 })
-
-
-
-
-
-
-
-
 
 
 
@@ -206,6 +157,43 @@ app.get("/restaurants/:id", async (req, res) => {
     }
 
 })
+
+app.post("/restaurants",transformName,  async (req, res, next) => {
+    try {
+        const addRestaurant = req.body
+        const restaurant = await Restaurant.findOne({addRestaurant})
+        // const hotel = await findHotel(addHotel.name)
+
+        if (restaurant) {
+            res.status(400).json({
+                message: "The restaurant already exists"
+            })
+        } else {
+            next()
+        }
+
+    } catch (err) {
+        console.error(err)
+
+        res.status(500).json({ errorMessage: "There was a problem" })
+    }
+}, async (req, res) => {
+
+    try{
+        const restaurant = req.body
+        
+        const newRestaurant = await Restaurant.create(restaurant)
+        res.json({
+            message: "Ok, Restaurant ajouté",
+            newRestaurant
+        })
+    }catch(err){
+        console.error(err)
+        res.status(500).json({errorMessage:"There was a problem"})
+    }
+})
+
+
 
 
 app.get("*", (req, res) => {
