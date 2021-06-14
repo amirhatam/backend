@@ -41,34 +41,51 @@ app.get("/heroes", async (req, res) => {
 
 })
 
+
+
+
 app.get("/heroes/:name", async (req, res) => {
 
     try {
-        
-        const nameHero = req.params.name
-        const heroes = await Hero.findOne({ name: nameHero })
 
-        res.json(heroes)
-        
+        const nameHero = req.params.name
+        const hero = await Hero.findOne({ name: nameHero })
+        // const hero = await findHero(nameHero)
+
+        if (hero) {
+            res.json({ hero })
+
+        } else {
+            res.json({
+                message: "Hero not found"
+            })
+        }
+
     }
     catch (err) {
         console.error(err)
-
-        res.json({ errorMessage: "There was a probleme :(" }, 500)
+        res.status(500).json({ errorMessage: "There was a problem" })
     }
 
 });
 
 
-app.get("/heroes/:name/powers", (req, res) => {
-    const nameHero = req.params.name.toLowerCase()
+app.get("/heroes/:name/powers", async (req, res) => {
 
-    const selectedHero = superHeros.find(elem => {
-        return nameHero === elem.name.toLowerCase()
-    })
+    try {
 
-    res.json(selectedHero.powers)
+        const nameHero = req.params.name
+        const hero = await Hero.findOne({ name: nameHero })
+
+        res.json({ powers: hero.powers })
+
+    } catch (err) {
+        console.error(err)
+        res.status(500).json({ errorMessage: "There was a problem" })
+    }
+
 })
+
 
 const transformName = (req, res, next) => {
     if (req.body.name === undefined) {
@@ -83,34 +100,42 @@ const transformName = (req, res, next) => {
 
 }
 
-app.post("/heroes", transformName, (req, res, next) => {
-    const hero = req.body
+app.post("/heroes", transformName, async (req, res, next) => {
 
-    const selectedHero = superHeros.find(elem => {
-        return elem.name.toLowerCase() === hero.name
-    })
 
-    if (selectedHero) {
+    try {
+        const addHero = req.body
+        const hero = await Hero.findOne({addHero})
+        // const hero = await findHero(addHero.name)
 
-        res.json({
-            errorMessage: "The hero already exists"
-        })
+        if (hero) {
+            res.status(400).json({
+                message: "This hero already exists"
+            })
+        } else {
+            next()
+        }
 
-    } else {
-        next()
+    } catch (err) {
+        console.error(err)
+        res.status(500).json({ errorMessage: "There was a problem" })
     }
-}, (req, res) => {
-    // console.log(req.body);
+}, async (req, res) => {
 
-    const hero = req.body
-
-    superHeros.push(hero)
-
-    res.json({
-        message: "Ok, héros ajouté",
-        hero
-    })
+    try{
+        const hero = req.body
+        
+        const newHero = await Hero.create(hero)
+        res.json({
+            message: "Ok, héros ajouté",
+            newHero
+        })
+    }catch(err){
+        console.error(err)
+        res.status(500).json({errorMessage:"There was a problem"})
+    }
 })
+
 
 app.post("/heroes/:name/powers", (req, res) => {
     const nameHero = req.params.name.toLowerCase()

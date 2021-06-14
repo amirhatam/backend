@@ -117,6 +117,49 @@ app.post("/hotel",transformName,  async (req, res, next) => {
     }
 })
 
+const continueIfHotelExists = async (req, res, next) => {
+    try {
+        const nameHotel = req.params.name
+
+        const hotel = await Hotel.findOne({nameHotel})
+
+        if (hotel) {
+            next()
+        } else {
+            res.status(400).json({ errorMessage: "Hotel was not found" })
+        }
+
+    } catch (err) {
+        console.error(err)
+
+        res.status(500).json({ errorMessage: "There was a problem :(" })
+    }
+}
+
+app.put("/hotel/:id", continueIfHotelExists, async (req, res) => {
+
+    try {
+        const idHotel = req.params.id
+        const newValuesHotel = req.body
+
+        await Hero.replaceOne({ name: {
+            $regex: new RegExp("^" + idHotel, "i")
+        } }, newValuesHotel )
+
+        res.json({
+            message: `${idHotel} was replaced!`
+        })
+
+    } catch (err) {
+        console.error(err)
+
+        res.status(500).json({ errorMessage: "There was a problem" })
+    }
+    
+})
+
+
+
 
 
 app.get("/restaurants", async (req, res) => {
@@ -192,6 +235,8 @@ app.post("/restaurants",transformName,  async (req, res, next) => {
         res.status(500).json({errorMessage:"There was a problem"})
     }
 })
+
+
 
 
 
