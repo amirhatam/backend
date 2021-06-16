@@ -1,10 +1,10 @@
 const express = require("express")
-const expressValidator = require("express-validator");
-const cors = require("cors")
 const mongoose = require("mongoose")
-const userName = require('./models/username');
+const cors = require("cors")
+const expressValidator = require("express-validator");
+const UserName = require('./models/userName');
 
-mongoose.connect("mongodb://localhost:27017/username", (err) => {
+mongoose.connect("mongodb://localhost:27017/usernameDB", (err) => {
     if (err) {
         console.error(err)
     } else {
@@ -21,15 +21,24 @@ app.use(cors())
 app.use(express.json())
 
 
+const debug = (req, res, next) => {
+    console.log("I received a request!");
+
+    next()
+}
+
+app.use(debug)
+
+
 app.get("/", async (req, res) => {
     try {
-        const users = await userName.find({})
+        
+        const users = await UserName.find()
         res.json(users)
     }catch (err) {
         console.log("Error", error);
         res.status(500).json({message: "Erreur en traitant la requête"})
     }
-
 
 })
 
@@ -39,7 +48,7 @@ app.post('/users/add',
     schema
       .is().min(4)
       .is().max(20) 
-      .has().not().spaces() // Should not have spaces
+      .has().not().spaces() 
 
     return schema.validate(value);
   }),
@@ -47,7 +56,7 @@ app.post('/users/add',
         const errors = validationResult(req);
         if (errors.isEmpty() === false) {
             res.json({
-                errors: errors.array() // to be used in a json loop
+                errors: errors.array() 
             });
             return;
         } else {
@@ -85,7 +94,11 @@ app.get("/users/:name", async (req, res) => {
 
 
 
-
+app.get("*", (req, res) => {
+    res.json({
+        errorMessage: "The route was not found"
+    }, 404)
+})
 
 app.listen(port, () => {
     console.log(`J'écoute des requêtes sur le port ${port}`);

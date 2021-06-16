@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const UserName = require('./models/username');
+const UserName = require('./models/userName');
 
 mongoose.connect("mongodb://localhost:27017/usernameDB", (err) => {
     if (err) {

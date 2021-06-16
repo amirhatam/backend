@@ -8,7 +8,7 @@ const UNSchema = new mongoose.Schema({
     created: { type: Date, default: Date.now }
 })
 
-const UserName = mongoose.model("Hotel", UNSchema)
+const UserName = mongoose.model("User", UNSchema)
 
 
 
