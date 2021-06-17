@@ -2,7 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
 const expressValidator = require("express-validator");
-const UserName = require('./models/userName');
+const userNameModel = require('./models/userName');
 
 mongoose.connect("mongodb://localhost:27017/usernameDB", (err) => {
     if (err) {
@@ -33,7 +33,7 @@ app.use(debug)
 app.get("/", async (req, res) => {
     try {
         
-        const users = await UserName.find()
+        const users = await userNameModel.find()
         res.json(users)
     }catch (err) {
         console.log("Error", error);
@@ -73,7 +73,7 @@ app.get("/users/:name", async (req, res) => {
     try {
 
         const username = req.params.username
-        const user = await userName.findOne({ username: username })
+        const user = await userNameModel.findOne({ username: username })
 
         if (user) {
             res.json({ user })

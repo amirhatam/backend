@@ -8,8 +8,8 @@ const UNSchema = new mongoose.Schema({
     created: { type: Date, default: Date.now }
 })
 
-const UserName = mongoose.model("User", UNSchema)
+const userNameModel = mongoose.model("User", UNSchema)
 
 
 
-module.exports = UserName
+module.exports = userNameModel
