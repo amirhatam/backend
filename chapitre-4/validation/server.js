@@ -2,6 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const usersRoutes = require("./routes/usersRoutes")
 
+
 mongoose.connect("mongodb://localhost:27017/usernameDB", (err) => {
     if (err) {
         console.error(err)
@@ -18,6 +19,7 @@ const app = express()
 app.use(express.json())
 
 app.use("/users", usersRoutes)
+
 
 
 // const debug = (req, res, next) => {
