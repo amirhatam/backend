@@ -2,6 +2,8 @@ const userModel = require("../models/user")
 const expressValidator = require("express-validator")
 const jwt = require("jsonwebtoken")
 const bcrypt = require('bcryptjs');
+const config = require("../config.js")
+
 
 const signup = async (req, res) => {
     try {
@@ -10,16 +12,34 @@ const signup = async (req, res) => {
 
             res.status(400).json({ errors: errors.array() })
         } else {
-            const username = req.body.username
+
+            const email = req.body.email
             const pass = req.body.password
+            const confirmPass = req.body.confirmPassword
+            const firstName = req.body.firstName
+            const surname = req.body.surname
+            const dateOfBirth = req.body.dateOfBirth
 
             const password = bcrypt.hashSync(pass)
+            const confirmPassword = bcrypt.hashSync(confirmPass)
 
-            console.log("UserName :", username)
-            console.log("Password :", password)
+            // console.log("email :", email)
+            // console.log("Password :", password)
+            // console.log("confirmPassword :", hashconfirmPassword)
+            // console.log("firstName :", firstName)
+            // console.log("surname :", surname)
+            // console.log("dateOfBirth :", dateOfBirth)
 
-            const newUser = await userModel.create({ username, password })
-            console.log(newUser)
+            const newUser = await userModel.create(
+                {
+                    email,
+                    password,
+                    confirmPassword,
+                    firstName,
+                    surname,
+                    dateOfBirth
+                })
+            // console.log(newUser)
 
             res.json({ message: "The user was addes!", newUser })
         }
@@ -32,11 +52,15 @@ const signup = async (req, res) => {
 
 const login = async (req, res) => {
     try {
-        console.log("req.body.email")
-        const userEmail = req.body.email
-        const user = await userModel.findOne({ userEmail })
+        const firstName = req.body.firstName
+        const user = await userModel.findOne({ firstName })
+        
+        // console.log("user.password :", user.password)
+        // console.log("req.body.password :", req.body.password)
 
         const result = bcrypt.compareSync(req.body.password, user.password)
+
+        // console.log("result :",result)
 
         if (result) {
             const token = jwt.sign(
@@ -52,7 +76,7 @@ const login = async (req, res) => {
             res.status(400).json({ errors: errors.array() })
         }
     } catch (error) {
-        console.log("Eroor: ", error)
+        console.log("Erorr: ", error)
         res.status(500).json({ message: "There was a problem", error })
     }
 
@@ -62,5 +86,4 @@ const login = async (req, res) => {
 module.exports = {
     signup,
     login,
-
 }
